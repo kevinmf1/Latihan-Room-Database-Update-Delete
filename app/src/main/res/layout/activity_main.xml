@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/greeting_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="22dp"
+            android:text="Halo, Kevin De Bruyne"
+            android:textColor="@color/black"
+            android:textSize="23sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/navigate_room"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/baseline_storage_24"
+            app:layout_constraintBottom_toTopOf="@+id/rv_horizontal_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/greeting_text" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/greeting_subtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Mari jelajahi aplikasi ini!"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@+id/greeting_text"
+            app:layout_constraintTop_toBottomOf="@+id/greeting_text" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/rv_horizontal_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Player Terbaik di Dunia (Horizontal)"
+            app:layout_constraintStart_toStartOf="@+id/greeting_subtext"
+            app:layout_constraintTop_toBottomOf="@+id/greeting_subtext" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_player_horizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_horizontal_title"
+            tools:listitem="@layout/item_player_horizontal"
+            tools:orientation="horizontal" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/rv_vertical_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="LinearLayoutManager (Vertikal)"
+            app:layout_constraintStart_toStartOf="@+id/rv_horizontal_title"
+            app:layout_constraintTop_toBottomOf="@+id/rv_player_horizontal" />
+
+        <Button
+            android:id="@+id/btnChangeRV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="Ubah"
+            app:layout_constraintBottom_toBottomOf="@+id/rv_vertical_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/rv_vertical_title" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_player"
+            tools:listitem="@layout/item_player"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnChangeRV" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
