@@ -5,10 +5,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.vinz.latihanrecyclerviewpraktikum.room.example.AppDao
+import com.vinz.latihanrecyclerviewpraktikum.room.example.PlayerEntity
+import com.vinz.latihanrecyclerviewpraktikum.room.practice.PeopleDao
+import com.vinz.latihanrecyclerviewpraktikum.room.practice.PeopleEntity
 
 /**
  * Kelas AppDatabase adalah kelas abstrak yang berfungsi sebagai holder database dan merupakan titik akses ke database SQLite yang mendasarinya.
- * Kelas ini mendeklarasikan database dengan entitas PlayerDatabase dan versi 1.
+ * Kelas ini mendeklarasikan database dengan entitas PlayerEntity dan versi 1.
  * Kelas ini juga menggunakan konverter tipe khusus (AppConverter) untuk mengubah tipe data File menjadi String dan sebaliknya.
  *
  * Fungsi appDao() adalah fungsi abstrak yang mengembalikan AppDao.
@@ -23,8 +27,8 @@ import androidx.room.TypeConverters
  * Mengembalikan instance dari AppDatabase.
  */
 
-// Mendeklarasikan database dengan entitas PlayerDatabase dan versi 1
-@Database(entities = [PlayerDatabase::class], version = 1)
+// Mendeklarasikan database dengan entitas PlayerEntity dan versi 1
+@Database(entities = [PlayerEntity::class, PeopleEntity::class], version = 2)
 
 // Menggunakan konverter tipe khusus untuk mengubah tipe data File menjadi String dan sebaliknya
 @TypeConverters(AppConverter::class)
@@ -34,6 +38,8 @@ abstract class AppDatabase : RoomDatabase() {
 
     // Mendeklarasikan fungsi abstrak yang mengembalikan AppDao
     abstract fun appDao(): AppDao
+
+    abstract fun peopleDao() : PeopleDao
 
     // Membuat objek pendamping untuk AppDatabase
     companion object {
@@ -53,6 +59,7 @@ abstract class AppDatabase : RoomDatabase() {
                         context.applicationContext,
                         AppDatabase::class.java, "app_database"
                     )
+                        .fallbackToDestructiveMigration()
                         .build()
                 }
             }

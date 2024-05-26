@@ -1,9 +1,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.LatihanRecyclerViewPraktikum" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.LatihanRecyclerViewPraktikum" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
     <style name="Theme.LatihanRecyclerViewPraktikum" parent="Base.Theme.LatihanRecyclerViewPraktikum" />
+
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@drawable/bg_dialog</item>
+    </style>
 </resources>

@@ -12,21 +12,22 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/btn_edit"
+            android:id="@+id/btn_fav"
             android:layout_width="wrap_content"
-            android:layout_marginEnd="4dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/baseline_edit_24"
-            app:layout_constraintEnd_toStartOf="@+id/btn_delete"
-            app:layout_constraintTop_toTopOf="@+id/btn_delete" />
+            android:layout_marginEnd="4dp"
+            android:elevation="10dp"
+            android:src="@drawable/baseline_favorite_border_24"
+            app:layout_constraintEnd_toStartOf="@+id/btn_more"
+            app:layout_constraintTop_toTopOf="@+id/btn_more" />
 
         <ImageView
-            android:id="@+id/btn_delete"
+            android:id="@+id/btn_more"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:src="@drawable/baseline_delete_24"
+            android:src="@drawable/baseline_more_horiz_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,7 +50,7 @@
             android:layout_marginTop="8dp"
             android:text="Kevin De Bruyne"
             android:textSize="18sp"
-            app:layout_constraintEnd_toStartOf="@+id/btn_edit"
+            app:layout_constraintEnd_toStartOf="@+id/btn_fav"
             app:layout_constraintStart_toEndOf="@+id/player_image"
             app:layout_constraintTop_toTopOf="@+id/player_image" />
 
@@ -62,7 +63,7 @@
             android:text="Kevin De Bruyne is manchester city player that plays in Midfield Position. He is arguably as one of th..."
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="@+id/player_image"
-            app:layout_constraintEnd_toEndOf="@+id/btn_delete"
+            app:layout_constraintEnd_toEndOf="@+id/btn_more"
             app:layout_constraintStart_toStartOf="@+id/player_name"
             app:layout_constraintTop_toBottomOf="@+id/player_name" />
 

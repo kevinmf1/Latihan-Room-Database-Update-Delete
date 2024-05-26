@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.textview.MaterialTextView
-import com.vinz.latihanrecyclerviewpraktikum.activity.PlayerRoomActivity
+import com.vinz.latihanrecyclerviewpraktikum.activity.example.PlayerRoomActivity
 import com.vinz.latihanrecyclerviewpraktikum.adapter.PlayerAdapter
 import com.vinz.latihanrecyclerviewpraktikum.adapter.PlayerAdapterGrid
 import com.vinz.latihanrecyclerviewpraktikum.adapter.PlayerAdapterStaggered

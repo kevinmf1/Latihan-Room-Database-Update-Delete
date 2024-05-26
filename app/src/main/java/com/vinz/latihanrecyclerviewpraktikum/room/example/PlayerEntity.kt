@@ -1,4 +1,4 @@
-package com.vinz.latihanrecyclerviewpraktikum.room
+package com.vinz.latihanrecyclerviewpraktikum.room.example
 
 import android.os.Parcel
 import android.os.Parcelable
@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 import java.io.File
 
 /**
- * Kelas PlayerDatabase adalah kelas data yang berfungsi sebagai entitas dalam database Room.
+ * Kelas PlayerEntity adalah kelas data yang berfungsi sebagai entitas dalam database Room.
  * Kelas ini memiliki beberapa properti yang mewakili kolom dalam tabel database.
  *
  * Anotasi @Entity digunakan untuk memberi tahu Room bahwa kelas ini adalah tabel dalam database.
@@ -18,11 +18,11 @@ import java.io.File
  *
  * Anotasi @ColumnInfo digunakan untuk menentukan nama kolom dalam tabel.
  *
- * Kelas ini juga mengimplementasikan Parcelable, yang memungkinkan kita untuk mempassing objek PlayerDatabase antar komponen Android.
+ * Kelas ini juga mengimplementasikan Parcelable, yang memungkinkan kita untuk mempassing objek PlayerEntity antar komponen Android.
  */
 
 @Entity
-data class PlayerDatabase(
+data class PlayerEntity(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     val id: Int = 0,
@@ -36,7 +36,7 @@ data class PlayerDatabase(
     @ColumnInfo(name = "player_image")
     val image: File
 ) : Parcelable {
-    // Konstruktor sekunder untuk membuat objek PlayerDatabase dari Parcel
+    // Konstruktor sekunder untuk membuat objek PlayerEntity dari Parcel
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString()!!,
@@ -44,7 +44,7 @@ data class PlayerDatabase(
         File(parcel.readString()!!)
     )
 
-    // Fungsi untuk menulis data objek PlayerDatabase ke Parcel
+    // Fungsi untuk menulis data objek PlayerEntity ke Parcel
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(id)
         parcel.writeString(name)
@@ -57,15 +57,15 @@ data class PlayerDatabase(
         return 0
     }
 
-    // Objek pendamping untuk PlayerDatabase yang berisi fungsi untuk membuat objek PlayerDatabase dari Parcel dan Array
-    companion object CREATOR : Parcelable.Creator<PlayerDatabase> {
-        // Fungsi untuk membuat objek PlayerDatabase dari Parcel
-        override fun createFromParcel(parcel: Parcel): PlayerDatabase {
-            return PlayerDatabase(parcel)
+    // Objek pendamping untuk PlayerEntity yang berisi fungsi untuk membuat objek PlayerEntity dari Parcel dan Array
+    companion object CREATOR : Parcelable.Creator<PlayerEntity> {
+        // Fungsi untuk membuat objek PlayerEntity dari Parcel
+        override fun createFromParcel(parcel: Parcel): PlayerEntity {
+            return PlayerEntity(parcel)
         }
 
-        // Fungsi untuk membuat array dari objek PlayerDatabase
-        override fun newArray(size: Int): Array<PlayerDatabase?> {
+        // Fungsi untuk membuat array dari objek PlayerEntity
+        override fun newArray(size: Int): Array<PlayerEntity?> {
             return arrayOfNulls(size)
         }
     }

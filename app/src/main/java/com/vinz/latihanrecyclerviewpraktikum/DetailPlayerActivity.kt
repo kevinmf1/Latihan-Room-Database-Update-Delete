@@ -9,7 +9,7 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textview.MaterialTextView
-import com.vinz.latihanrecyclerviewpraktikum.room.PlayerDatabase
+import com.vinz.latihanrecyclerviewpraktikum.room.example.PlayerEntity
 
 class DetailPlayerActivity : AppCompatActivity() {
 
@@ -23,7 +23,7 @@ class DetailPlayerActivity : AppCompatActivity() {
         val getDataImage = intent.getIntExtra("image", 0)
 
         // Mengambil data dari intent yang terdapat di dalam activity Room
-        val getDataPlayer = intent.getParcelableExtra<PlayerDatabase>("player")
+        val getDataPlayer = intent.getParcelableExtra<PlayerEntity>("player")
 
         // Menghubungkan variabel dengan komponen di layout
         val playerName = findViewById<MaterialTextView>(R.id.player_name)
@@ -36,7 +36,7 @@ class DetailPlayerActivity : AppCompatActivity() {
             // Jika getDataPlayer tidak null, maka akan menampilkan data yang berasal dari getDataPlayer (activity Room)
             getDataPlayer != null -> {
                 playerName.text = getDataPlayer.name
-                playerDescription.text = getDataPlayer.description
+                playerDescription.text = getDataPlayer.name
                 Glide.with(playerImage)
                     .load(getDataPlayer.image)
                     .into(playerImage)

@@ -4,17 +4,20 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.android.material.textview.MaterialTextView
 import com.vinz.latihanrecyclerviewpraktikum.R
-import com.vinz.latihanrecyclerviewpraktikum.room.PlayerDatabase
+import com.vinz.latihanrecyclerviewpraktikum.room.example.PlayerEntity
 
-class PlayerAdapterRoom(private var playerList: List<PlayerDatabase>) :
+class PlayerAdapterRoom(private var playerList: List<PlayerEntity>) :
     RecyclerView.Adapter<PlayerAdapterRoom.PlayerViewHolder>() {
 
     // Deklarasi variabel untuk callback ketika item diklik
     private lateinit var onItemClickCallback: OnItemClickCallback
+
+    private var stateFav = false
 
     // Fungsi untuk mengatur callback ketika item diklik
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
@@ -23,7 +26,8 @@ class PlayerAdapterRoom(private var playerList: List<PlayerDatabase>) :
 
     // Interface untuk callback ketika item diklik
     interface OnItemClickCallback {
-        fun onItemClicked(data: PlayerDatabase)
+        fun onItemClicked(data: PlayerEntity)
+        fun onMoreClicked(data: PlayerEntity, position: Int)
     }
 
     // Kelas ViewHolder untuk menyimpan referensi view yang digunakan dalam RecyclerView
@@ -31,6 +35,8 @@ class PlayerAdapterRoom(private var playerList: List<PlayerDatabase>) :
         val playerName: MaterialTextView = itemView.findViewById(R.id.player_name)
         val playerDescription: MaterialTextView = itemView.findViewById(R.id.player_description)
         val playerImage: ShapeableImageView = itemView.findViewById(R.id.player_image)
+        val btnMore: ImageView = itemView.findViewById(R.id.btn_more)
+        val btnFav: ImageView = itemView.findViewById(R.id.btn_fav)
     }
 
     // Fungsi untuk membuat ViewHolder (Melakukan setting untuk XML yang akan kita gunakan untuk menampilkan data)
@@ -48,7 +54,7 @@ class PlayerAdapterRoom(private var playerList: List<PlayerDatabase>) :
         val data = playerList[position]
 
         holder.playerName.text = data.name
-        holder.playerDescription.text = data.description.shorten(85)
+        holder.playerDescription.text = data.description
 
         // Mengatur image
         val uri = Uri.fromFile(data.image)
@@ -56,6 +62,15 @@ class PlayerAdapterRoom(private var playerList: List<PlayerDatabase>) :
 
         // Mengatur aksi ketika item diklik
         holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(playerList[holder.absoluteAdapterPosition]) }
+
+        // Mengatur aksi ketika button more diklik
+        holder.btnMore.setOnClickListener { onItemClickCallback.onMoreClicked(playerList[holder.absoluteAdapterPosition], holder.absoluteAdapterPosition) }
+
+        // Mengatur aksi ketika botton favorit diklik
+        holder.btnFav.setOnClickListener {
+            stateFav = !stateFav
+            holder.btnFav.setImageResource(if (stateFav) R.drawable.baseline_favorite_24 else R.drawable.baseline_favorite_border_24)
+        }
     }
 
     // Fungsi untuk mendapatkan jumlah item

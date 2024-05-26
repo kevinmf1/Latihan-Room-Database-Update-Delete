@@ -55,6 +55,7 @@ dependencies {
 
     // Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    kapt("com.github.bumptech.glide:compiler:4.16.0")
 
     // viewmodel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")

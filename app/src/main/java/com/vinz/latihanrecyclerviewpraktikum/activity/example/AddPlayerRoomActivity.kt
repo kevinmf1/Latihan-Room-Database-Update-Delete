@@ -1,4 +1,4 @@
-package com.vinz.latihanrecyclerviewpraktikum.activity
+package com.vinz.latihanrecyclerviewpraktikum.activity.example
 
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -15,9 +15,9 @@ import com.esafirm.imagepicker.features.registerImagePicker
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.vinz.latihanrecyclerviewpraktikum.R
-import com.vinz.latihanrecyclerviewpraktikum.room.AppViewModel
-import com.vinz.latihanrecyclerviewpraktikum.room.PlayerDatabase
-import com.vinz.latihanrecyclerviewpraktikum.room.RoomViewModelFactory
+import com.vinz.latihanrecyclerviewpraktikum.room.example.AppViewModel
+import com.vinz.latihanrecyclerviewpraktikum.room.example.PlayerEntity
+import com.vinz.latihanrecyclerviewpraktikum.room.example.RoomViewModelFactory
 import com.vinz.latihanrecyclerviewpraktikum.utils.reduceFileImage
 import com.vinz.latihanrecyclerviewpraktikum.utils.uriToFile
 
@@ -112,7 +112,7 @@ class AddPlayerRoomActivity : AppCompatActivity() {
             playerName.error = "Nama pemain tidak boleh kosong"
         }
 
-        // Memeriksa apakah deskripsi pemain kosong
+        // Memeriksa apakah nama pemain kosong
         if (playerDescription.text.toString().isEmpty()) {
             error++
             playerDescription.error = "Deskripsi pemain tidak boleh kosong"
@@ -135,7 +135,7 @@ class AddPlayerRoomActivity : AppCompatActivity() {
 
         // Membuat objek pemain dengan data yang diinputkan
         val player = imageFile?.let {
-            PlayerDatabase(
+            PlayerEntity(
                 id = 0,
                 name = playerName.text.toString(),
                 description = playerDescription.text.toString(),

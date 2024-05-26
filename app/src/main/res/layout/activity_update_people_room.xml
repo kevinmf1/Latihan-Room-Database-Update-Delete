@@ -4,35 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.example.AddPlayerRoomActivity">
+    tools:context=".activity.practice.UpdatePeopleRoomActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/add_player_title"
+            android:id="@+id/update_people_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="Tambah Pemain"
+            android:text="Update People"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/player_name_title"
+            android:id="@+id/people_name_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
-            android:text="Nama Pemain"
+            android:text="People Name"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/add_player_title" />
+            app:layout_constraintTop_toBottomOf="@+id/update_people_title" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/player_name_layout"
+            android:id="@+id/people_name_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -40,10 +40,10 @@
             app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/player_name_title">
+            app:layout_constraintTop_toBottomOf="@+id/people_name_title">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/player_name_edit"
+                android:id="@+id/people_name_edit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Masukkan nama pemain"
@@ -52,48 +52,16 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/player_desc_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
-            android:text="Deskripsi Pemain"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/player_name_layout" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/player_desc_layout"
-            android:layout_width="0dp"
-            android:layout_height="110dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="8dp"
-            app:hintEnabled="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/player_desc_title">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/player_desc_edit"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="top"
-                android:hint="Masukkan deskripsi pemain"
-                android:inputType="textMultiLine"
-                android:maxLines="4" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/player_image_title"
+            android:id="@+id/people_image_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Gambar Pemain"
-            app:layout_constraintStart_toStartOf="@+id/player_desc_layout"
-            app:layout_constraintTop_toBottomOf="@+id/player_desc_layout" />
+            android:text="People Image"
+            app:layout_constraintStart_toStartOf="@+id/people_name_layout"
+            app:layout_constraintTop_toBottomOf="@+id/people_name_layout" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/player_image_layout"
+            android:id="@+id/people_image_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -101,42 +69,42 @@
             app:hintEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/player_image_title">
+            app:layout_constraintTop_toBottomOf="@+id/people_image_title">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/player_image_edit"
+                android:id="@+id/people_image_edit"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clickable="true"
                 android:cursorVisible="false"
                 android:focusable="false"
-                android:hint="Masukkan gambar pemain"
+                android:hint="Insert people image"
                 android:inputType="textPersonName" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <ImageView
-            android:id="@+id/player_image"
+            android:id="@+id/people_image"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:adjustViewBounds="true"
-            android:visibility="gone"
             android:src="@drawable/ic_launcher_background"
-            app:layout_constraintEnd_toEndOf="@+id/player_image_layout"
-            app:layout_constraintStart_toStartOf="@+id/player_image_layout"
-            app:layout_constraintTop_toBottomOf="@id/player_image_layout" />
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/people_image_layout"
+            app:layout_constraintStart_toStartOf="@+id/people_image_layout"
+            app:layout_constraintTop_toBottomOf="@id/people_image_layout" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/saved_player"
+            android:id="@+id/saved_people"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginVertical="30dp"
-            android:text="Simpan"
+            android:text="Saved"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/player_image_layout"
-            app:layout_constraintStart_toStartOf="@+id/player_image_layout"
-            app:layout_constraintTop_toBottomOf="@+id/player_image" />
+            app:layout_constraintEnd_toEndOf="@+id/people_image_layout"
+            app:layout_constraintStart_toStartOf="@+id/people_image_layout"
+            app:layout_constraintTop_toBottomOf="@+id/people_image" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

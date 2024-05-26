@@ -1,4 +1,4 @@
-package com.vinz.latihanrecyclerviewpraktikum.room
+package com.vinz.latihanrecyclerviewpraktikum.room.example
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
@@ -25,6 +25,7 @@ import com.vinz.latihanrecyclerviewpraktikum.utils.DependencyInjection
 
 class RoomViewModelFactory private constructor(private val appRepository: AppRepository) :
     ViewModelProvider.NewInstanceFactory() {
+
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(AppViewModel::class.java)) {

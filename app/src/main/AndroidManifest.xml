@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <!--
     Bagian <queries> digunakan untuk mendeklarasikan paket yang akan diakses oleh aplikasi.
     Dalam hal ini, aplikasi akan mengakses paket "com.whatsapp" dan "com.whatsapp.w4b".
@@ -10,7 +9,6 @@
         <package android:name="com.whatsapp" />
         <package android:name="com.whatsapp.w4b" />
     </queries>
-
     <!--
     Bagian <uses-feature> digunakan untuk mendeklarasikan fitur hardware atau software yang diperlukan oleh aplikasi.
     Dalam hal ini, aplikasi memerlukan fitur kamera, tetapi tidak wajib (android:required="false").
@@ -18,7 +16,6 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
-
     <!--
     Bagian <uses-permission> digunakan untuk mendeklarasikan izin yang diperlukan oleh aplikasi.
     Dalam hal ini, aplikasi memerlukan izin untuk menggunakan kamera, menulis ke penyimpanan eksternal, dan mengakses internet.
@@ -37,16 +34,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LatihanRecyclerViewPraktikum"
         tools:targetApi="31">
-
+        <activity
+            android:name=".activity.practice.DetailPeopleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.practice.AddPeopleRoomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.practice.UpdatePeopleRoomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.practice.PeopleRoomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.example.UpdatePlayerRoomActivity"
+            android:exported="false" />
         <!--
         Bagian <activity> digunakan untuk mendeklarasikan activity yang ada dalam aplikasi.
         Dalam hal ini, aplikasi memiliki beberapa activity seperti PlayerRoomActivity, AddPlayerRoomActivity, MainActivity, DetailPlayerActivity, dan LoginActivity.
         -->
         <activity
-            android:name=".activity.PlayerRoomActivity"
+            android:name=".activity.example.PlayerRoomActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.AddPlayerRoomActivity"
+            android:name=".activity.example.AddPlayerRoomActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -58,15 +69,16 @@
             android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
+
                 <!--
                 Bagian <action> dan <category> digunakan untuk mendeklarasikan intent filter.
                 Dalam hal ini, LoginActivity ditetapkan sebagai activity utama yang akan diluncurkan ketika aplikasi dibuka.
                 -->
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <!--
         Bagian <provider> digunakan untuk mendeklarasikan content provider.
         Dalam hal ini, aplikasi mendeklarasikan FileProvider untuk berbagi file secara aman ke aplikasi lain.

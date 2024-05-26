@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.example.PlayerRoomActivity">
+    tools:context=".activity.practice.PeopleRoomActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -19,42 +19,43 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/btn_practice"
+                android:id="@+id/btn_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/baseline_dataset_24"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/player_room_title" />
-
-            <TextView
-                android:id="@+id/player_room_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:text="Daftar Pemain Sepak Bola"
-                android:textSize="20sp"
+                android:src="@drawable/baseline_arrow_back_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/people_room_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="Halaman Latihan"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_back"
+                app:layout_constraintStart_toEndOf="@+id/btn_back"
+                app:layout_constraintTop_toTopOf="@+id/btn_back" />
+
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_player_room"
+                android:id="@+id/rv_people_room"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/player_room_title"
-                tools:listitem="@layout/item_player_room" />
+                app:layout_constraintTop_toBottomOf="@+id/people_room_title"
+                tools:listitem="@layout/item_people" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_add_player"
+        android:id="@+id/btn_add_people"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
